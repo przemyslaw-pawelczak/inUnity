@@ -1,0 +1,3 @@
+[submodule "icemu"]
+	path = icemu
+	url = git@github.com:felixhartlieb/ICEmu-inUnity.git
