@@ -1,3 +1,6 @@
 [submodule "icemu"]
 	path = icemu
 	url = git@github.com:felixhartlieb/ICEmu-inUnity.git
+[submodule "inunity/unity"]
+	path = inunity/unity
+	url = git@github.com:ThrowTheSwitch/Unity.git
