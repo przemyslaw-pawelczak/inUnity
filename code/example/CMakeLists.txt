@@ -40,6 +40,9 @@ foreach(dep ${DEPENDENCIES})
         PRIVATE ${CMAKE_SOURCE_DIR}/${dep}/)
 endforeach()
 
+# TODO: How should this be done?
+include_directories("../../inunity")
+
 # Linker options for this project
 target_link_options(${PROJECT_NAME}
     PUBLIC -mfpu=fpv4-sp-d16 -mfloat-abi=hard
@@ -58,4 +61,3 @@ target_link_libraries(${PROJECT_NAME}
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_SIZE} ${PROJECT_NAME}${OUTPUT_SUFFIX}
     )
-

@@ -1,14 +1,38 @@
 #include <stdint.h>
 
-volatile int var = 0;
+#include "inunity.h"
+#include "example-productioncode.h"
 
-uint32_t call_simple(uint32_t value1, uint16_t value2) {
-  return value1 * value2;
+extern int globalInputVariable;
+
+void setUp() {}
+void tearDown() {}
+
+void test_basic(void) {
+  TEST_ASSERT_EQUAL_INT(42, returnNumber(42));
 }
 
-int main(void)
-{
-    var = call_simple(10, 20);
+void test_intermittent_war(void) {
+  TEST_ASSERT_WAR(functionUnderTest());
+}
 
-    return var;
+void test_intermittent_atomic(void) {
+  TEST_ASSERT_ATOMIC(functionUnderTest());
+}
+
+void test_intermittent_fresh(void) {
+  TEST_ASSERT_FRESH_GLOBAL(functionUnderTestFresh(), globalInputVariable);
+  //TEST_ASSERT_FRESH_RETURN(functionUnderTestFresh(), inputFunction);
+
+}
+
+int main(void) {
+  UNITY_BEGIN();
+
+  RUN_TEST(test_basic); // basic test case that will pass
+  RUN_TEST(test_intermittent_war);
+  RUN_TEST(test_intermittent_atomic);
+  RUN_TEST(test_intermittent_fresh);
+
+  return UNITY_END();;
 }

@@ -354,3 +354,25 @@ am_default_isr(void)
     {
     }
 }
+
+
+//*****************************************************************************
+//
+// Define the sbrk syscall for heap placement
+//
+//*****************************************************************************
+extern int _heap_start;
+
+void *_sbrk(int incr) {
+    static unsigned char *heap = 0;
+    unsigned char *prev_heap;
+
+    if (heap == 0) {
+        heap = (unsigned char *)&_heap_start;
+    }
+
+    prev_heap = heap;
+    heap += incr;
+
+    return prev_heap;
+}

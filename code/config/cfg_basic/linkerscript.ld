@@ -65,6 +65,12 @@ SECTIONS
         _ebss = .;
     } > RWMEM
 
+   /* Define heap area at the end */
+   . = ALIGN(4);
+   PROVIDE(_heap_start = .);
+   _end = . ;
+
+
     .nvm (NOLOAD):
     {
         . = ALIGN(4);

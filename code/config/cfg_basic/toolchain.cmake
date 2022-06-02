@@ -27,8 +27,6 @@ add_compile_options(
     -mcpu=${CPU}
     )
 
-
-
 # Toolchain include directories
 # include_directories(
 #     )
