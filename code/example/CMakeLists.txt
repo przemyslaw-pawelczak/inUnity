@@ -1,6 +1,6 @@
 message("Using toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
 
-project(call-simpel LANGUAGES C ASM)
+project(example-testcode LANGUAGES C ASM)
 
 set(DEPENDENCIES
     )
