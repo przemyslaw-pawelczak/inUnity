@@ -17,7 +17,7 @@ int functionUnderTestFresh() {
 
   int temp = globalInputVariable + 5;
   CHECKPOINT = 0; // This marks a CP
-  globalInputVariable = inputFunction();
+  //globalInputVariable = inputFunction();
 
   return globalInputVariable;
 }

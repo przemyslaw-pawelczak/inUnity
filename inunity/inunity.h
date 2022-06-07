@@ -30,13 +30,13 @@ void* FRESH_RETURN_ADDRESS = 0;
 // GLOBAL FUNCTION -------------------------------------------------------------
 void checkFail(int flag) {
   if (flag != 0) {
-      TEST_FAIL();
+      TEST_FAIL(); // Switch callback for other frameworks
   }
 }
 
 void checkFailMsg(int flag, char* msg) {
   if (flag != 0) {
-      TEST_FAIL_MESSAGE(msg);
+      TEST_FAIL_MESSAGE(msg);  // Switch callback for other frameworks 
   }
 }
 
