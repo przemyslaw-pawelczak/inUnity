@@ -3,7 +3,6 @@
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
-
 set(CONFIG_DIR "${PROJECT_SOURCE_DIR}/config/cfg_basic_clang")
 
 set(OUTPUT_SUFFIX ".elf" CACHE STRING "")
@@ -46,9 +45,8 @@ add_link_options(
     --target=thumbv7em-unknown-none-eabi
     -nodefaultlibs
 
-    # Add gcc lib
+    # TODO: Fix!
     -L/home/felix/Desktop/inUnity/code/config/cfg_basic_clang/lib/gcc
-    # Add standard lib
     -L/home/felix/Desktop/inUnity/code/config/cfg_basic_clang/lib/libc
 
     -Wl,--Bstatic

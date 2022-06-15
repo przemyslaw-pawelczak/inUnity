@@ -127,11 +127,6 @@
 
 #endif	 /* !_LIBC_LIMITS_H_ */
 
-#if defined __GNUC__ && !defined _GCC_LIMITS_H_
-/* `_GCC_LIMITS_H_' is what GCC's file defines.  */
-# include_next <limits.h>
-#endif /* __GNUC__ && !_GCC_LIMITS_H_ */
-
 #ifndef _POSIX2_RE_DUP_MAX
 /* The maximum number of repeated occurrences of a regular expression
  *    permitted when using the interval notation `\{M,N\}'.  */
