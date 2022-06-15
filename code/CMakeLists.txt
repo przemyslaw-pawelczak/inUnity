@@ -6,3 +6,5 @@ project(test-code LANGUAGES C ASM)
 
 add_subdirectory(example)
 add_subdirectory(crc)
+add_subdirectory(fft)
+add_subdirectory(randfolder)

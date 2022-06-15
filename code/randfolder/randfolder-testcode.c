@@ -3,21 +3,15 @@
 #include <string.h>
 
 #include "inunity.h"
-#include "aes.h"
+#include "aescode.c"
 
-extern crc crcSlow(unsigned char const message[], int nBytes);
+extern void ShiftRows(void);
 
 void setUp() {}
 void tearDown() {}
 
-int x = 0;
-
 void test_intermittent_war(void) {
-  unsigned char  test[] = "123456789";
-
-  x = &test;
-
-  TEST_ASSERT_WAR(crcSlow(test,9));
+  TEST_ASSERT_WAR(ShiftRows());
 }
 
 int main(void) {
@@ -25,6 +19,5 @@ int main(void) {
 
   RUN_TEST(test_intermittent_war);
 
-  UNITY_END();
-  return x;
+  return UNITY_END();
 }

@@ -36,7 +36,7 @@ void checkFail(int flag) {
 
 void checkFailMsg(int flag, char* msg) {
   if (flag != 0) {
-      TEST_FAIL_MESSAGE(msg);  // Switch callback for other frameworks 
+      TEST_FAIL_MESSAGE(msg);  // Switch callback for other frameworks
   }
 }
 
