@@ -1,0 +1,11 @@
+*.pyc
+__pycache__/
+test_program_results/
+.scannerwork/
+.idea/
+scan.lnk
+.DS_STORE
+ScEpTIC.egg-info/
+build/
+dist/
+docs/_build/
