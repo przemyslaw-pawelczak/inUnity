@@ -1,0 +1,13 @@
+void 0bit @llvm.memcpy.p0i8.p0i8.i64()
+00: Value: (int 32bit) %3 = alloca int 32bit x 1
+01: store Value: (int 32bit) %0 in Value: (int 32bit) %3
+02: Value: (int 32bit) %4 = alloca int 32bit x 1
+03: store Value: (int 32bit) %1 in Value: (int 32bit) %4
+04: Value: (int 64bit) %5 = alloca int 64bit x 1
+05: store Value: (int 64bit) %2 in Value: (int 64bit) %5
+06: Value: (int 32bit) %6 = load  Value: (int 32bit) %3
+07: Value: (int 32bit) %7 = load  Value: (int 32bit) %4
+08: Value: (int 64bit) %8 = load  Value: (int 64bit) %5
+09: Value: (void 0bit) %9 = memcpy([Value(virtual_reg, %6, int 32bit), Value(virtual_reg, %7, int 32bit), Value(virtual_reg, %8, int 64bit)]
+     )
+10: return Value: (void 0bit) %9

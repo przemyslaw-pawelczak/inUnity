@@ -1,0 +1,11 @@
+[void 0bit] @variable()
+00: [%0]  store Value: (int 32bit) 0 in Value: (int 32bit*) @a
+01: call @checkpoint([])
+02: %2 = load  Value: (int 32bit*) @a
+03: store Value: (int 32bit) %2 in Value: (int 32bit*) @b
+04: %3 = load  Value: (int 32bit*) @b
+05: %4 = add Value: (int 32bit) %3, Value: (int 32bit) 1
+06: store Value: (int 32bit) %4 in Value: (int 32bit*) @b
+07: %5 = load  Value: (int 32bit*) @b
+08: store Value: (int 32bit) %5 in Value: (int 32bit*) @a
+09: return Value: (void 0bit) None

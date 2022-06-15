@@ -1,0 +1,2 @@
+[int 32bit] @stack2()
+0: [%0]  return Value: (int 32bit) 2

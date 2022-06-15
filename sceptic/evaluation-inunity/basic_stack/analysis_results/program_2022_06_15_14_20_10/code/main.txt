@@ -1,0 +1,14 @@
+[int 32bit] @main()
+00: [%0]  %1 = alloca int 32bit x 1
+01: store Value: (int 32bit) 0 in Value: (int 32bit*) %1
+02: call @checkpoint([])
+03: call @variable([])
+04: call @checkpoint([])
+05: call @checkpoint([])
+06: %5 = call @stack([])
+07: %6 = call @stack2([])
+08: call @checkpoint([])
+09: call @checkpoint([])
+10: call @heap([])
+11: call @checkpoint([])
+12: return Value: (int 32bit) 0

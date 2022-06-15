@@ -1,0 +1,20 @@
+Found anomalies: 1
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #3 (Line: 37; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_global/source.c)
+        @variable -> #2 (Line: 8; Column: 7; Function name: variable; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_global/source.c)
+
+    Memory alteration happens at:     @main -> #3 (Line: 37; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_global/source.c)
+        @variable -> #8 (Line: 10; Column: 5; Function name: variable; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_global/source.c)
+
+
+    Element:
+        Global variable @a [read -> write]
+            read_clock: 9
+            write_clock: 15
+            read_value: 0
+            write_value: 1
+
+
+
+

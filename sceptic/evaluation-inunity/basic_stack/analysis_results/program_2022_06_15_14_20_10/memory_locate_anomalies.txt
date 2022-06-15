@@ -1,0 +1,37 @@
+Found anomalies: 2
+
+[Activation Record Anomaly - False Positive]
+    Memory access happens at:     @main -> #6 (Line: 42; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_stack/source.c)
+        @stack -> #1 (Line: 21; Column: 3; Function name: stack; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_stack/source.c)
+
+    Memory alteration happens at:     @main -> #7 (Line: 43; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_stack/source.c)
+        @main -> #7 (Line: 43; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_stack/source.c)
+
+
+    Element:
+        EBP of function @stack (FALSE POSITIVE) [read -> write]
+            read_clock: 28
+            write_clock: 34
+            read_value: 0
+            write_value: 0
+
+
+
+
+[Activation Record Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 42; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_stack/source.c)
+        @stack -> #1 (Line: 21; Column: 3; Function name: stack; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_stack/source.c)
+
+    Memory alteration happens at:     @main -> #7 (Line: 43; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_stack/source.c)
+
+
+    Element:
+        PC of function @stack [read -> write]
+            read_clock: 28
+            write_clock: 34
+            read_value: {'function_name': '@main', 'instruction_number': 6}
+            write_value: {'function_name': '@main', 'instruction_number': 7}
+
+
+
+

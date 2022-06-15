@@ -1,0 +1,16 @@
+[void 0bit] @heap()
+00: [%0]  %1 = alloca int 32bit* x 1
+01: %2 = alloca int 32bit x 1
+02: %3 = call @malloc([Value(immediate, 8, int 64bit)])
+03: %4 = bitcast Value: (int 8bit*) %3 to int 32bit*
+04: store Value: (int 32bit*) %4 in Value: (int 32bit**) %1
+05: %5 = load  Value: (int 32bit**) %1
+06: store Value: (int 32bit) 5 in Value: (int 32bit*) %5
+07: call @checkpoint([])
+08: %7 = load  Value: (int 32bit**) %1
+09: %8 = load  Value: (int 32bit*) %7
+10: %9 = add Value: (int 32bit) %8, Value: (int 32bit) 7
+11: store Value: (int 32bit) %9 in Value: (int 32bit*) %2
+12: %10 = load  Value: (int 32bit**) %1
+13: %11 = call @free([Value(virtual_reg, %10, int 32bit*)])
+14: return Value: (void 0bit) None

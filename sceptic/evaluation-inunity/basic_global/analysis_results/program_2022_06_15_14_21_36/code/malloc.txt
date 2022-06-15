@@ -1,0 +1,6 @@
+int 32bit @malloc()
+0: Value: (int 32bit) %1 = alloca int 32bit x 1
+1: store Value: (int 32bit) %0 in Value: (int 32bit) %1
+2: Value: (int 32bit) %2 = load  Value: (int 32bit) %1
+3: Value: (int 32bit) %3 = malloc([Value(virtual_reg, %2, int 32bit)])
+4: return Value: (int 32bit) %3

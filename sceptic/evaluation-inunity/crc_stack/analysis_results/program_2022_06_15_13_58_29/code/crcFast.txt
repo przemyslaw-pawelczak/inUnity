@@ -1,0 +1,49 @@
+[int 16bit] @crcFast()
+00: [%2]  %3 = alloca int 8bit* x 1
+01: %4 = alloca int 32bit x 1
+02: %5 = alloca int 16bit x 1
+03: %6 = alloca int 8bit x 1
+04: %7 = alloca int 32bit x 1
+05: store Value: (int 8bit*) %0 in Value: (int 8bit**) %3
+06: store Value: (int 32bit) %1 in Value: (int 32bit*) %4
+07: store Value: (int 16bit) -1 in Value: (int 16bit*) %5
+08: store Value: (int 32bit) 0 in Value: (int 32bit*) %7
+09: branch None %8 None [Useless]
+10: [%8]  %9 = load  Value: (int 32bit*) %7
+11: %10 = load  Value: (int 32bit*) %4
+12: %11 = cmp slt: Value: (int 32bit) %9 vs Value: (int 32bit) %10
+13: branch %11 %12 %38
+14: [%12]  %13 = load  Value: (int 8bit**) %3
+15: %14 = load  Value: (int 32bit*) %7
+16: %15 = sext Value: (int 32bit) %14 to int 64bit
+17: %16 = getelementpointer Value: (int 8bit*) %13 [Value: (int 64bit) %15]
+18: %17 = load  Value: (int 8bit*) %16
+19: %18 = zext Value: (int 8bit) %17 to int 32bit
+20: %19 = load  Value: (int 16bit*) %5
+21: %20 = zext Value: (int 16bit) %19 to int 32bit
+22: %21 = ashr Value: (int 32bit) %20, Value: (int 32bit) 8
+23: %22 = xor Value: (int 32bit) %18, Value: (int 32bit) %21
+24: %23 = trunc Value: (int 32bit) %22 to int 8bit
+25: store Value: (int 8bit) %23 in Value: (int 8bit*) %6
+26: %24 = load  Value: (int 8bit*) %6
+27: %25 = zext Value: (int 8bit) %24 to int 64bit
+28: %26 = getelementpointer Value: (int 32bit*) @crcTable [Value: (int 64bit) 0][Value: (int 64bit) %25]
+29: %27 = load  Value: (int 16bit*) %26
+30: %28 = zext Value: (int 16bit) %27 to int 32bit
+31: %29 = load  Value: (int 16bit*) %5
+32: %30 = zext Value: (int 16bit) %29 to int 32bit
+33: %31 = shl Value: (int 32bit) %30, Value: (int 32bit) 8
+34: %32 = xor Value: (int 32bit) %28, Value: (int 32bit) %31
+35: %33 = trunc Value: (int 32bit) %32 to int 16bit
+36: store Value: (int 16bit) %33 in Value: (int 16bit*) %5
+37: call @checkpoint([])
+38: branch None %35 None [Useless]
+39: [%35]  %36 = load  Value: (int 32bit*) %7
+40: %37 = add Value: (int 32bit) %36, Value: (int 32bit) 1
+41: store Value: (int 32bit) %37 in Value: (int 32bit*) %7
+42: branch None %8 None
+43: [%38]  %39 = load  Value: (int 16bit*) %5
+44: %40 = zext Value: (int 16bit) %39 to int 32bit
+45: %41 = xor Value: (int 32bit) %40, Value: (int 32bit) 0
+46: %42 = trunc Value: (int 32bit) %41 to int 16bit
+47: return Value: (int 16bit) %42

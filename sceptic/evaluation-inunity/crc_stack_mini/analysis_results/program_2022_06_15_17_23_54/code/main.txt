@@ -1,0 +1,11 @@
+[int 32bit] @main()
+0: [%0]  %1 = alloca int 32bit x 1
+1: %2 = alloca (int 8bit)[10] x 1
+2: store Value: (int 32bit) 0 in Value: (int 32bit*) %1
+3: %3 = bitcast Value: (int 32bit*) %2 to int 8bit*
+4: call @llvm.memcpy.p0i8.p0i8.i64([Value(virtual_reg, %3, int 8bit*), Value(address, getelementpointer Value: (int 32bit*) @main.test [Valu
+    e: (int 32bit) 0][Value: (int 32bit) 0], int 8bit*), Value(immediate, 10, int 64bit), Value(immediate, 1, int 32bit), Value(immediate, f
+    alse, int 1bit)])
+5: %4 = getelementpointer Value: (int 32bit*) %2 [Value: (int 32bit) 0][Value: (int 32bit) 0]
+6: %5 = call @crcSlow([Value(virtual_reg, %4, int 8bit*), Value(immediate, 9, int 32bit)])
+7: return Value: (int 32bit) 0

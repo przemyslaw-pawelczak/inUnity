@@ -1,0 +1,73 @@
+[REGISTERS]
+PC: @main -> #13
+%1: S-0x0
+%5: 1
+%6: 2
+
+[STACK]
+Virtual Memory: VirtualStack
+Starting address: S-0x0
+Ending address: S-0x4
+Allocated cells: 8
+Occupied memory: 4 bytes[S-0x0 - S-0x3 (4 bytes)] 0
+[S-0x4 - S-0x7 (4 bytes)] {'function_name': '@main', 'instruction_number': 10}
+[S-0x8 - S-0xb (4 bytes)] 0
+[S-0xc - S-0xf (4 bytes)] H-0x0
+[S-0x10 - S-0x13 (4 bytes)] 12
+[S-0x14 - S-0x17 (4 bytes)] {'function_name': '@heap', 'instruction_number': 13}
+[S-0x18 - S-0x1b (4 bytes)] 12
+[S-0x1c - S-0x1f (4 bytes)] H-0x0
+
+
+[HEAP]
+Virtual Memory: VirtualHeap
+Starting address: H-0x0
+Ending address: H-0x0
+Allocated cells: 0
+Occupied memory: 0 bytes
+
+[GST]
+(SRAM)
+Virtual Memory: VirtualGlobalSymbolTable
+Starting address: SGST-0x0
+Ending address: SGST-0x8
+Allocated cells: 2
+Occupied memory: 8 bytes
+[SGST-0x0] @a: 1
+[SGST-0x4] @b: 1
+
+
+(NVM)
+Virtual Memory: VirtualGlobalSymbolTable
+Starting address: FGST-0x0
+Ending address: FGST-0x0
+Allocated cells: 0
+Occupied memory: 0 bytes
+
+
+[INPUT TABLE]
+
+
+[OUTPUT TABLE]
+
+
+[OUTPUT IDEMPOTENCY]
+
+
+Global Clock: 100
+
+[Stats]
+ [program]
+  Instruction executed: 36
+  Checkpoints executed: 0
+  Checkpoints restored (resets): 0
+  Dump executed: 0
+  Dump restored: 0
+  Anomalies found: 1
+ 
+  Simulation started at: 2022-06-15 14:20:25
+  Simulation duration: 0:00:00
+  Speed: NaN instructions/s
+         NaN checkpoints/s
+ 
+

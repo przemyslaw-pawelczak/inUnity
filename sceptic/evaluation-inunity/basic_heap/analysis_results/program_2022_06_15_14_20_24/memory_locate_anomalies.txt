@@ -1,0 +1,21 @@
+Found anomalies: 1
+
+[Memory Map Anomaly]
+    Memory access happens at:     @main -> #10 (Line: 48; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_heap/source.c)
+        @heap -> #9 (Line: 29; Column: 9; Function name: heap; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_heap/source.c)
+
+    Memory alteration happens at:     @main -> #10 (Line: 48; Column: 3; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_heap/source.c)
+        @heap -> #13 (Line: 30; Column: 3; Function name: heap; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/basic_heap/source.c)
+            @free -> #3 (Builtin function)
+
+
+    Element:
+        Memory address H-0x0 [read -> deallocation]
+            read_clock: 69
+            write_clock: 80
+            read_value: 5
+            write_value: None
+
+
+
+

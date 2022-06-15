@@ -1,0 +1,55 @@
+[void 0bit] @crcInit()
+00: [%0]  %1 = alloca int 16bit x 1
+01: %2 = alloca int 32bit x 1
+02: %3 = alloca int 8bit x 1
+03: store Value: (int 32bit) 0 in Value: (int 32bit*) %2
+04: branch None %4 None [Useless]
+05: [%4]  %5 = load  Value: (int 32bit*) %2
+06: %6 = cmp slt: Value: (int 32bit) %5 vs Value: (int 32bit) 256
+07: branch %6 %7 %45
+08: [%7]  %8 = load  Value: (int 32bit*) %2
+09: %9 = shl Value: (int 32bit) %8, Value: (int 32bit) 8
+10: %10 = trunc Value: (int 32bit) %9 to int 16bit
+11: store Value: (int 16bit) %10 in Value: (int 16bit*) %1
+12: store Value: (int 8bit) 8 in Value: (int 8bit*) %3
+13: branch None %11 None [Useless]
+14: [%11]  %12 = load  Value: (int 8bit*) %3
+15: %13 = zext Value: (int 8bit) %12 to int 32bit
+16: %14 = cmp sgt: Value: (int 32bit) %13 vs Value: (int 32bit) 0
+17: branch %14 %15 %36
+18: [%15]  %16 = load  Value: (int 16bit*) %1
+19: %17 = zext Value: (int 16bit) %16 to int 32bit
+20: %18 = and Value: (int 32bit) %17, Value: (int 32bit) 32768
+21: %19 = cmp ne: Value: (int 32bit) %18 vs Value: (int 32bit) 0
+22: branch %19 %20 %26
+23: [%20]  %21 = load  Value: (int 16bit*) %1
+24: %22 = zext Value: (int 16bit) %21 to int 32bit
+25: %23 = shl Value: (int 32bit) %22, Value: (int 32bit) 1
+26: %24 = xor Value: (int 32bit) %23, Value: (int 32bit) 4129
+27: %25 = trunc Value: (int 32bit) %24 to int 16bit
+28: store Value: (int 16bit) %25 in Value: (int 16bit*) %1
+29: branch None %31 None
+30: [%26]  %27 = load  Value: (int 16bit*) %1
+31: %28 = zext Value: (int 16bit) %27 to int 32bit
+32: %29 = shl Value: (int 32bit) %28, Value: (int 32bit) 1
+33: %30 = trunc Value: (int 32bit) %29 to int 16bit
+34: store Value: (int 16bit) %30 in Value: (int 16bit*) %1
+35: branch None %31 None [Useless]
+36: [%31]  call @checkpoint([])
+37: branch None %33 None [Useless]
+38: [%33]  %34 = load  Value: (int 8bit*) %3
+39: %35 = add Value: (int 8bit) %34, Value: (int 8bit) -1
+40: store Value: (int 8bit) %35 in Value: (int 8bit*) %3
+41: branch None %11 None
+42: [%36]  %37 = load  Value: (int 16bit*) %1
+43: %38 = load  Value: (int 32bit*) %2
+44: %39 = sext Value: (int 32bit) %38 to int 64bit
+45: %40 = getelementpointer Value: (int 32bit*) @crcTable [Value: (int 64bit) 0][Value: (int 64bit) %39]
+46: store Value: (int 16bit) %37 in Value: (int 16bit*) %40
+47: call @checkpoint([])
+48: branch None %42 None [Useless]
+49: [%42]  %43 = load  Value: (int 32bit*) %2
+50: %44 = add Value: (int 32bit) %43, Value: (int 32bit) 1
+51: store Value: (int 32bit) %44 in Value: (int 32bit*) %2
+52: branch None %4 None
+53: [%45]  return Value: (void 0bit) None

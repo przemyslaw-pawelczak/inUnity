@@ -1,0 +1,164 @@
+Found anomalies: 9
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #52 (Line: 117; Column: 32; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #54 (Line: 117; Column: 32; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 64
+            write_clock: 66
+            read_value: 8
+            write_value: 7
+
+
+
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #32 (Line: 122; Column: 17; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #42 (Line: 124; Column: 27; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 72
+            write_clock: 82
+            read_value: -29217
+            write_value: 2975
+
+
+
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #32 (Line: 122; Column: 17; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #48 (Line: 128; Column: 27; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 93
+            write_clock: 102
+            read_value: 2975
+            write_value: 5950
+
+
+
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #37 (Line: 124; Column: 30; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #42 (Line: 124; Column: 27; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 77
+            write_clock: 82
+            read_value: -29217
+            write_value: 2975
+
+
+
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #44 (Line: 128; Column: 30; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #48 (Line: 128; Column: 27; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 98
+            write_clock: 102
+            read_value: 2975
+            write_value: 5950
+
+
+
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #58 (Line: 107; Column: 35; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #60 (Line: 107; Column: 35; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 210
+            write_clock: 212
+            read_value: 0
+            write_value: 1
+
+
+
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #21 (Line: 112; Column: 19; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #25 (Line: 112; Column: 19; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 225
+            write_clock: 229
+            read_value: -14462
+            write_value: -2686
+
+
+
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #21 (Line: 112; Column: 19; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #42 (Line: 124; Column: 27; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 225
+            write_clock: 245
+            read_value: -14462
+            write_value: -1243
+
+
+
+
+[Data Access Anomaly]
+    Memory access happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #21 (Line: 112; Column: 19; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+    Memory alteration happens at:     @main -> #6 (Line: 26; Column: 2; Function name: main; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/main.c)
+        @crcSlow -> #48 (Line: 128; Column: 27; Function name: crcSlow; File: /home/felix/Desktop/inUnity/sceptic/evaluation-inunity/crc_stack_mini/crc.c)
+
+
+    Element:
+        local variable of function @crcSlow [read -> write]
+            read_clock: 415
+            write_clock: 434
+            read_value: 15802
+            write_value: 7540
+
+
+
+

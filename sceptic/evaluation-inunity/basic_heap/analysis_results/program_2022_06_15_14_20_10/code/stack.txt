@@ -1,0 +1,3 @@
+[int 32bit] @stack()
+0: [%0]  call @checkpoint([])
+1: return Value: (int 32bit) 1
