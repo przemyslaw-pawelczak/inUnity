@@ -1,6 +1,6 @@
 message("Using toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
 
-project(evaluation-1-testcode LANGUAGES C ASM)
+project(aes-testcode LANGUAGES C ASM)
 
 set(DEPENDENCIES
     )

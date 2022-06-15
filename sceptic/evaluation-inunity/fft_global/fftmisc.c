@@ -62,6 +62,8 @@ unsigned NumberOfBitsNeeded ( unsigned PowerOfTwo )
     {
         if ( PowerOfTwo & (1 << i) )
             return i;
+
+        checkpoint();
     }
 }
 
@@ -75,6 +77,8 @@ unsigned ReverseBits ( unsigned index, unsigned NumBits )
     {
         rev = (rev << 1) | (index & 1);
         index >>= 1;
+
+        checkpoint();
     }
 
     return rev;

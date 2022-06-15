@@ -9,3 +9,4 @@ ScEpTIC.egg-info/
 build/
 dist/
 docs/_build/
+analysis_results/

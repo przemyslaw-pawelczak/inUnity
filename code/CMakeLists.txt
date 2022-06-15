@@ -5,4 +5,4 @@ message("Using toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
 project(test-code LANGUAGES C ASM)
 
 add_subdirectory(example)
-add_subdirectory(evaluation_1)
+add_subdirectory(crc)

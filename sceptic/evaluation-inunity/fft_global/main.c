@@ -15,7 +15,7 @@ static float Coeff[16];
 static float Amp[16];
 
 int old_main();
-    
+
 // main for benchmark purposes that does fft and inverse fft
 int main() {
     MAXSIZE = 128;
@@ -35,7 +35,7 @@ int old_main() {
 	float *coeff;
 	float *amp;
 
-		
+
  srand(1);
 
 /* RealIn=(float*)malloc(sizeof(float)*MAXSIZE);
@@ -55,16 +55,17 @@ int old_main() {
 	amp = Amp;
 
  /* Makes MAXWAVES waves of random amplitude and period */
-	for(i=0;i<MAXWAVES;i++) 
+	for(i=0;i<MAXWAVES;i++)
 	{
 		coeff[i] = rand()%1000;
 		amp[i] = rand()%1000;
+    checkpoint();
 	}
- for(i=0;i<MAXSIZE;i++) 
+ for(i=0;i<MAXSIZE;i++)
  {
    /*   RealIn[i]=rand();*/
 	 RealIn[i]=0;
-	 for(j=0;j<MAXWAVES;j++) 
+	 for(j=0;j<MAXWAVES;j++)
 	 {
 		 /* randomly select sin or cos */
 		 if (rand()%2)
@@ -76,21 +77,27 @@ int old_main() {
 		 	RealIn[i]+=coeff[j]*sin(amp[j]*i);
 		 }
   	 ImagIn[i]=0;
+     checkpoint();
 	 }
+   checkpoint();
  }
 
  /* regular*/
  fft_float (MAXSIZE,invfft,RealIn,ImagIn,RealOut,ImagOut);
- 
+
  printf("RealOut:\n");
- for (i=0;i<MAXSIZE;i++)
+ for (i=0;i<MAXSIZE;i++) {
    printf("%f \t", RealOut[i]);
+   checkpoint();
+ }
  printf("\n");
 
 printf("ImagOut:\n");
- for (i=0;i<MAXSIZE;i++)
+ for (i=0;i<MAXSIZE;i++) {
    printf("%f \t", ImagOut[i]);
-   printf("\n");
+   checkpoint();
+ }
+ printf("\n");
 
 /* free(RealIn);
  free(ImagIn);
