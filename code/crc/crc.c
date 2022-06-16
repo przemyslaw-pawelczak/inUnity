@@ -40,8 +40,7 @@
 #endif
 
 // Temporary definition inunity
-#include "nvm.h"
-nvm int CHECKPOINT;
+int CHECKPOINT;
 void checkpoint() { CHECKPOINT = 1; }
 
 /*********************************************************************

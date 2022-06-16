@@ -5,7 +5,6 @@ int benchmark();
 
 #define RUNS 1
 
-/*
 int main(void)
 {
   int run;
@@ -22,7 +21,6 @@ int main(void)
 
   return 0;
 }
-*/
 
 #define printf(...)
 #define fprintf(...)

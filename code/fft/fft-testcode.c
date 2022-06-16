@@ -3,16 +3,16 @@
 #include <string.h>
 
 #include "inunity.h"
-#include "crc.h"
+#include "fourier.h"
 
-extern crc crcSlow(unsigned char const message[], int nBytes);
+extern unsigned NumberOfBitsNeeded ( unsigned PowerOfTwo );
 
 void setUp() {}
 void tearDown() {}
 
 void test_intermittent_war(void) {
-  unsigned char  test[] = "123456789";
-  TEST_ASSERT_WAR(crcSlow(test,9));
+
+  TEST_ASSERT_WAR(NumberOfBitsNeeded(4));
 }
 
 int main(void) {
