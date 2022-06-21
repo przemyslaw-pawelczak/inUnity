@@ -25,7 +25,7 @@ set(CMAKE_SIZE          "llvm-size")
 add_compile_options(
     -mthumb
     -mcpu=cortex-m4
-    -march=armv7e-m
+    -march=armv7e-m+nofp
     -mfloat-abi=soft
     --target=thumbv7em-unknown-none-gnu
     -I/home/felix/Desktop/inUnity/code/config/cfg_global_clang/lib/include
@@ -40,7 +40,7 @@ add_compile_options(
 #TODO Find a nice way to find the arm-gcc libraries, this is awful
 add_link_options(
     -mcpu=cortex-m4
-    -march=armv7e-m
+    -march=armv7e-m+nofp
     -mfloat-abi=soft
     --target=thumbv7em-unknown-none-eabi
     -nodefaultlibs
@@ -54,4 +54,3 @@ add_link_options(
     -Wl,-lnosys
     -Wl,-lgcc
     )
-

@@ -12,5 +12,5 @@ _deps
 *.elf
 *.map
 sceptic/evaluation-inunity/output.log
-
 *.ll
+analysis_results/

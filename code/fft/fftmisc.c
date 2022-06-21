@@ -31,10 +31,6 @@
 
 #define BITS_PER_WORD   (sizeof(unsigned) * 8)
 
-// Temporary definition inunity
-int CHECKPOINT;
-void checkpoint() { CHECKPOINT = 1; }
-
 
 int IsPowerOfTwo ( unsigned x )
 {
@@ -66,7 +62,6 @@ unsigned NumberOfBitsNeeded ( unsigned PowerOfTwo )
     {
         if ( PowerOfTwo & (1 << i) )
             return i;
-        checkpoint();
     }
 }
 
