@@ -98,7 +98,7 @@ memory_configuration = {
 # [CHECKPOINT MECHANISM CONFIGURATION]
 
 checkpoint_mechanism_configuration = {
-    'checkpoint_placement': 'dynamic',
+    'checkpoint_placement': 'static',
     'on_dynamic_voltage_alert': 'continue',
     'checkpoint_routine_name': 'checkpoint',
     'restore_routine_name': 'restore',

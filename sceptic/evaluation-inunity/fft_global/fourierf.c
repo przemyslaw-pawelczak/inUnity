@@ -126,7 +126,7 @@ void fft_float (
                 ImagOut[j] += ti;
                 checkpoint();
             }
-        checkpoint();
+            checkpoint();
         }
 
         BlockEnd = BlockSize;
