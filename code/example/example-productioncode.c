@@ -1,7 +1,6 @@
 #include "nvm.h"
 
 nvm int a = 0;
-nvm int CHECKPOINT;
 int globalInputVariable;
 
 int returnNumber(int value1) {
@@ -16,7 +15,7 @@ int functionUnderTestFresh() {
   globalInputVariable = inputFunction();
 
   int temp = globalInputVariable + 5;
-  CHECKPOINT = 0; // This marks a CP
+  //CHECKPOINT = 0; // This marks a CP
   //globalInputVariable = inputFunction();
 
   return globalInputVariable;

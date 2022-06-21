@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set Repetitions
-REP=1
+REP=10
 
 cd build
 echo "Run Evaluation CRC-Stack"

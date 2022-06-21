@@ -29,6 +29,8 @@ NOTE:   String length must be evenly divisible by 16byte (str_len % 16 == 0)
 
 */
 
+extern void checkpoint();
+
 
 /*****************************************************************************/
 /* Includes:                                                                 */
@@ -36,7 +38,6 @@ NOTE:   String length must be evenly divisible by 16byte (str_len % 16 == 0)
 #include <stdint.h>
 #include <string.h> // CBC mode, for memset
 //#include "aesheader.h"
-
 
 /*****************************************************************************/
 /* Defines:                                                                  */
@@ -165,6 +166,7 @@ static void KeyExpansion(void)
     RoundKey[(i * 4) + 1] = Key[(i * 4) + 1];
     RoundKey[(i * 4) + 2] = Key[(i * 4) + 2];
     RoundKey[(i * 4) + 3] = Key[(i * 4) + 3];
+    checkpoint();
   }
 
   // All other round keys are found from the previous round keys.
@@ -173,6 +175,7 @@ static void KeyExpansion(void)
     for(j = 0; j < 4; ++j)
     {
       tempa[j]=RoundKey[(i-1) * 4 + j];
+      checkpoint();
     }
     if (i % Nk == 0)
     {
@@ -215,6 +218,7 @@ static void KeyExpansion(void)
     RoundKey[i * 4 + 1] = RoundKey[(i - Nk) * 4 + 1] ^ tempa[1];
     RoundKey[i * 4 + 2] = RoundKey[(i - Nk) * 4 + 2] ^ tempa[2];
     RoundKey[i * 4 + 3] = RoundKey[(i - Nk) * 4 + 3] ^ tempa[3];
+    checkpoint();
   }
 }
 
@@ -228,7 +232,9 @@ static void AddRoundKey(uint8_t round)
     for(j = 0; j < 4; ++j)
     {
       (*state)[i][j] ^= RoundKey[round * Nb * 4 + i * Nb + j];
+      checkpoint();
     }
+    checkpoint();
   }
 }
 
@@ -242,7 +248,9 @@ static void SubBytes(void)
     for(j = 0; j < 4; ++j)
     {
       (*state)[j][i] = getSBoxValue((*state)[j][i]);
+      checkpoint();
     }
+    checkpoint();
   }
 }
 
@@ -295,6 +303,7 @@ static void MixColumns(void)
     Tm  = (*state)[i][1] ^ (*state)[i][2] ; Tm = xtime(Tm);  (*state)[i][1] ^= Tm ^ Tmp ;
     Tm  = (*state)[i][2] ^ (*state)[i][3] ; Tm = xtime(Tm);  (*state)[i][2] ^= Tm ^ Tmp ;
     Tm  = (*state)[i][3] ^ t ;        Tm = xtime(Tm);  (*state)[i][3] ^= Tm ^ Tmp ;
+    checkpoint();
   }
 }
 
@@ -336,6 +345,7 @@ static void InvMixColumns(void)
     (*state)[i][1] = Multiply(a, 0x09) ^ Multiply(b, 0x0e) ^ Multiply(c, 0x0b) ^ Multiply(d, 0x0d);
     (*state)[i][2] = Multiply(a, 0x0d) ^ Multiply(b, 0x09) ^ Multiply(c, 0x0e) ^ Multiply(d, 0x0b);
     (*state)[i][3] = Multiply(a, 0x0b) ^ Multiply(b, 0x0d) ^ Multiply(c, 0x09) ^ Multiply(d, 0x0e);
+    checkpoint();
   }
 }
 
@@ -350,7 +360,9 @@ static void InvSubBytes(void)
     for(j=0;j<4;++j)
     {
       (*state)[j][i] = getSBoxInvert((*state)[j][i]);
+      checkpoint();
     }
+    checkpoint();
   }
 }
 
@@ -390,6 +402,7 @@ static void Cipher(void)
 
   // Add the First round key to the state before starting the rounds.
   AddRoundKey(0);
+  checkpoint();
 
   // There will be Nr rounds.
   // The first Nr-1 rounds are identical.
@@ -397,16 +410,28 @@ static void Cipher(void)
   for(round = 1; round < Nr; ++round)
   {
     SubBytes();
+    checkpoint();
+
     ShiftRows();
+    checkpoint();
+
     MixColumns();
+    checkpoint();
+
     AddRoundKey(round);
+    checkpoint();
   }
 
   // The last round is given below.
   // The MixColumns function is not here in the last round.
   SubBytes();
+  checkpoint();
+
   ShiftRows();
+  checkpoint();
+
   AddRoundKey(Nr);
+  checkpoint();
 }
 
 static void InvCipher(void)
@@ -415,6 +440,7 @@ static void InvCipher(void)
 
   // Add the First round key to the state before starting the rounds.
   AddRoundKey(Nr);
+  checkpoint();
 
   // There will be Nr rounds.
   // The first Nr-1 rounds are identical.
@@ -422,16 +448,28 @@ static void InvCipher(void)
   for(round=Nr-1;round>0;round--)
   {
     InvShiftRows();
+    checkpoint();
+
     InvSubBytes();
+    checkpoint();
+
     AddRoundKey(round);
+    checkpoint();
+
     InvMixColumns();
+    checkpoint();
   }
 
   // The last round is given below.
   // The MixColumns function is not here in the last round.
   InvShiftRows();
+  checkpoint();
+
   InvSubBytes();
+  checkpoint();
+
   AddRoundKey(0);
+  checkpoint();
 }
 
 static void BlockCopy(uint8_t* output, uint8_t* input)
@@ -440,6 +478,7 @@ static void BlockCopy(uint8_t* output, uint8_t* input)
   for (i=0;i<KEYLEN;++i)
   {
     output[i] = input[i];
+    checkpoint();
   }
 }
 
@@ -455,26 +494,33 @@ void AES128_ECB_encrypt(uint8_t* input, const uint8_t* key, uint8_t* output)
 {
   // Copy input to output, and work in-memory on output
   BlockCopy(output, input);
+  checkpoint();
   state = (state_t*)output;
 
   Key = key;
   KeyExpansion();
+  checkpoint();
 
   // The next function call encrypts the PlainText with the Key using AES algorithm.
   Cipher();
+  checkpoint();
 }
 
 void AES128_ECB_decrypt(uint8_t* input, const uint8_t* key, uint8_t *output)
 {
   // Copy input to output, and work in-memory on output
   BlockCopy(output, input);
+  checkpoint();
+
   state = (state_t*)output;
 
   // The KeyExpansion routine must be called before encryption.
   Key = key;
   KeyExpansion();
+  checkpoint();
 
   InvCipher();
+  checkpoint();
 }
 
 
@@ -493,6 +539,7 @@ static void XorWithIv(uint8_t* buf)
   for(i = 0; i < KEYLEN; ++i)
   {
     buf[i] ^= Iv[i];
+    checkpoint();
   }
 }
 
@@ -502,6 +549,7 @@ void AES128_CBC_encrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length,
   uint8_t remainders = length % KEYLEN; /* Remaining bytes in the last non-full block */
 
   BlockCopy(output, input);
+  checkpoint();
   state = (state_t*)output;
 
   // Skip the key expansion if key is passed as 0
@@ -509,6 +557,7 @@ void AES128_CBC_encrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length,
   {
     Key = key;
     KeyExpansion();
+    checkpoint();
   }
 
   if(iv != 0)
@@ -519,20 +568,28 @@ void AES128_CBC_encrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length,
   for(i = 0; i < length; i += KEYLEN)
   {
     XorWithIv(input);
+    checkpoint();
+
     BlockCopy(output, input);
+    checkpoint();
+
     state = (state_t*)output;
     Cipher();
+    checkpoint();
     Iv = output;
     input += KEYLEN;
     output += KEYLEN;
+    checkpoint();
   }
 
   if(remainders)
   {
     BlockCopy(output, input);
+    checkpoint();
     memset(output + remainders, 0, KEYLEN - remainders); /* add 0-padding */
     state = (state_t*)output;
     Cipher();
+    checkpoint();
   }
 }
 
@@ -542,6 +599,8 @@ void AES128_CBC_decrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length,
   uint8_t remainders = length % KEYLEN; /* Remaining bytes in the last non-full block */
 
   BlockCopy(output, input);
+  checkpoint();
+
   state = (state_t*)output;
 
   // Skip the key expansion if key is passed as 0
@@ -549,6 +608,7 @@ void AES128_CBC_decrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length,
   {
     Key = key;
     KeyExpansion();
+    checkpoint();
   }
 
   // If iv is passed as 0, we continue to encrypt without re-setting the Iv
@@ -560,20 +620,26 @@ void AES128_CBC_decrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length,
   for(i = 0; i < length; i += KEYLEN)
   {
     BlockCopy(output, input);
+    checkpoint();
     state = (state_t*)output;
     InvCipher();
+    checkpoint();
     XorWithIv(output);
+    checkpoint();
     Iv = input;
     input += KEYLEN;
     output += KEYLEN;
+    checkpoint();
   }
 
   if(remainders)
   {
     BlockCopy(output, input);
+    checkpoint();
     memset(output+remainders, 0, KEYLEN - remainders); /* add 0-padding */
     state = (state_t*)output;
     InvCipher();
+    checkpoint();
   }
 }
 

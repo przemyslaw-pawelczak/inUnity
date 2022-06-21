@@ -63,6 +63,8 @@ void test_intermittent_war(void) {
  }
 
   TEST_ASSERT_WAR(fft_float(MAXSIZE,invfft,RealIn,ImagIn,RealOut,ImagOut));
+  //fft_float(MAXSIZE,invfft,RealIn,ImagIn,RealOut,ImagOut);
+  //TEST_ASSERT_EQUAL_INT(42,1);
 }
 
 int main() {

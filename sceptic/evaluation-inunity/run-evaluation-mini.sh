@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set Repetitions
-REP=1
+REP=10
 
 echo "Run Evaluation CRC-Global"
 cd crc_global_mini/

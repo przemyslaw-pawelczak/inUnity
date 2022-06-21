@@ -40,4 +40,8 @@ void checkFailMsg(int flag, char* msg) {
   }
 }
 
+// Temporary definition inunity
+int CHECKPOINT;
+void checkpoint() { CHECKPOINT = 1; }
+
 #endif

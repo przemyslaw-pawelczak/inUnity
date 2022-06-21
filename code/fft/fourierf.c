@@ -79,6 +79,7 @@ void fft_float (
         j = ReverseBits ( i, NumBits );
         RealOut[j] = RealIn[i];
         ImagOut[j] = (ImagIn == NULL) ? 0.0 : ImagIn[i];
+        checkpoint();
     }
 
     /*
@@ -123,10 +124,13 @@ void fft_float (
 
                 RealOut[j] += tr;
                 ImagOut[j] += ti;
+                checkpoint();
             }
+            checkpoint();
         }
 
         BlockEnd = BlockSize;
+        checkpoint();
     }
 
     /*
@@ -141,6 +145,7 @@ void fft_float (
         {
             RealOut[i] /= denom;
             ImagOut[i] /= denom;
+            checkpoint();
         }
     }
 }

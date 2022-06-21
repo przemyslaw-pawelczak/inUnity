@@ -39,10 +39,6 @@
 #define REFLECT_REMAINDER(X)	(X)
 #endif
 
-// Temporary definition inunity
-int CHECKPOINT;
-void checkpoint() { CHECKPOINT = 1; }
-
 /*********************************************************************
  *
  * Function:    reflect()
