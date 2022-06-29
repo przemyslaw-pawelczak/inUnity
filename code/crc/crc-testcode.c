@@ -13,9 +13,9 @@ void tearDown() {}
 void test_intermittent_war(void) {
   unsigned char  test[] = "123456789";
 
-  TEST_ASSERT_WAR(crcSlow(test,9));
-  //crcSlow(test,9);
-  //TEST_ASSERT_EQUAL_INT(42,1);
+  //TEST_ASSERT_WAR(crcSlow(test,9));
+  crcSlow(test,9);
+  TEST_ASSERT_EQUAL_INT(42,1);
 }
 
 int main(void) {

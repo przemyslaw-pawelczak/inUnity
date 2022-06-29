@@ -16,9 +16,9 @@ void test_intermittent_war(void) {
 
   state = (state_t*)plain_text;
 
-  TEST_ASSERT_WAR(SubBytes());
-  //SubBytes();
-  //TEST_ASSERT_EQUAL_INT(42,1);
+  //TEST_ASSERT_WAR(SubBytes());
+  SubBytes();
+  TEST_ASSERT_EQUAL_INT(42,1);
 }
 
 int main(void) {
